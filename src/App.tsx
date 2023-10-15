@@ -42,8 +42,8 @@ const router = createBrowserRouter(
       <Route path="/loan-application" element={<LoanApplicatiion />} />  */}
       
   {/* <Route path="/delete" element={<Delete />} />  */}
-      <Route path="/" element={<Summary />} />
-      <Route path="/signin" element={<Signin />} />
+      <Route path="/" element={<Signin />} />
+      <Route path="/summary" element={<Summary />} />
     </Route>
   )
 );
