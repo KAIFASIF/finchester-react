@@ -35,13 +35,13 @@ const Root = () => {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-        {/* 
+   
       <Route element={<RoleWrapper role="ROLE_USER" />}>
-        <Route path="/loan-application/:loanId" element={<LoanApplication />} /> 
+        {/* <Route path="/loan-application/:loanId" element={<LoanApplication />} />  */}
       </Route>
-        <Route path="/loan-application" element={<LoanApplicatiion />} />
+   
       
-      {/* <Route path="/delete" element={<Delete />} /> */}
+  {/* <Route path="/delete" element={<Delete />} />  */}
       <Route path="/signin" element={<Signin />} />
       <Route path="/" element={<Summary />} />
     </Route>
