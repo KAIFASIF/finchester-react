@@ -7,13 +7,11 @@ import {
   Navigate,
 } from "react-router-dom";
 
-// import LoanApplication from "./screens/user/loanApplicatiion";
-// import Signin from "./screens/signin";
-
 import { useRecoilValue } from "recoil";
 import { authAtom } from "./recoil/authAtom";
 import Signin from "./screens/signin";
-// import Summary from "./screens/signin/user/summary";
+import Summary from "./user/summary";
+
 
 // import Delete from "./screens/Delete";
 
@@ -43,7 +41,7 @@ const router = createBrowserRouter(
       
   {/* <Route path="/delete" element={<Delete />} />  */}
       <Route path="/signin" element={<Signin />} />
-      {/* <Route path="/" element={<Summary />} /> */}
+      <Route path="/" element={<Summary />} />
     </Route>
   )
 );
