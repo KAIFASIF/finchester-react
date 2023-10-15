@@ -9,10 +9,12 @@ import {
 
 // import LoanApplication from "./screens/user/loanApplicatiion";
 // import Signin from "./screens/signin";
-// import Summary from "./screens/user/summary";
+
 import { useRecoilValue } from "recoil";
 import { authAtom } from "./recoil/authAtom";
 import Signin from "./screens/signin";
+import Summary from "./screens/signin/user/summary";
+
 // import Delete from "./screens/Delete";
 
 
@@ -33,13 +35,15 @@ const Root = () => {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
+        {/* 
       <Route element={<RoleWrapper role="ROLE_USER" />}>
-        {/* <Route path="/" element={<Summary />} />
-        <Route path="/loan-application" element={<LoanApplication />} />
-        <Route path="/loan-application/:loanId" element={<LoanApplication />} /> */}
+        <Route path="/loan-application/:loanId" element={<LoanApplication />} /> 
       </Route>
-      <Route path="/" element={<Signin />} />
+        <Route path="/loan-application" element={<LoanApplicatiion />} />
+      
       {/* <Route path="/delete" element={<Delete />} /> */}
+      <Route path="/signin" element={<Signin />} />
+      <Route path="/" element={<Summary />} />
     </Route>
   )
 );

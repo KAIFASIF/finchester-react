@@ -55,7 +55,8 @@ const RHFRadioField: React.FC<RHFRadioFieldProps> = ({
       <Controller
         name={name}
         control={control}
-        defaultValue={defaultValue}
+        // defaultValue={defaultValue}
+        // value={}
         rules={{
           required:
             required &&

@@ -11,8 +11,8 @@ type RHFCheckedFieldProps = {
   onChange?: any;
   disabled?: boolean;
   onClick?: any;
-  defaultValue?: boolean;
-  checked?: boolean;
+  defaultValue?:boolean
+  checked?:boolean
 };
 
 const RHFCheckedField: React.FC<RHFCheckedFieldProps> = ({
@@ -24,7 +24,8 @@ const RHFCheckedField: React.FC<RHFCheckedFieldProps> = ({
   disabled,
   onClick,
   defaultValue,
-  checked,
+  checked
+
 }) => {
   const { control, unregister, formState, setValue, clearErrors } =
     useFormContext();
@@ -45,6 +46,7 @@ const RHFCheckedField: React.FC<RHFCheckedFieldProps> = ({
     <div className="">
       <Controller
         name={name}
+     
         defaultValue={defaultValue}
         control={control}
         rules={{
@@ -54,7 +56,7 @@ const RHFCheckedField: React.FC<RHFCheckedFieldProps> = ({
           <FormControlLabel
             control={
               <Checkbox
-                checked={checked}
+              checked={checked}
                 onClick={onClick}
                 defaultChecked={defaultChecked}
                 disabled={disabled}
