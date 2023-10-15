@@ -49,7 +49,7 @@ const Dashboard = () => {
     setValue("search", "");
     setValue("startDate", fetchTodaysDate());
     setValue("endDate", fetchTodaysDate());
-    fetchStatusAndLoans("", fetchTodaysDate(), fetchTodaysDate());
+    fetchStatusAndLoans("", fetchTodaysDate(), fetchTodaysDate());// eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Dashboard = () => {
       getValues("search"),
       getValues("startDate"),
       getValues("endDate")
-    );
+    ); // eslint-disable-next-line
   }, [page, size]);
 
   const clearFilters = () => {
