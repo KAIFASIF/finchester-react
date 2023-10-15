@@ -151,6 +151,7 @@ const RHFTextField: React.FC<TextFieldProps> = ({
         onClick={handleClick}
         disabled={disabled}
         margin="normal"
+        onKeyPress={onKeyPress}
         error={
           Boolean(errors[name]) ||
           (errors[configName as keyof Errors] &&
