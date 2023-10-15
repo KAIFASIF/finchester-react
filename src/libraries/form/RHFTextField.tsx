@@ -82,11 +82,18 @@ const RHFTextField: React.FC<TextFieldProps> = ({
     formState: { errors },
   } = useFormContext();
 
+  // useEffect(() => {
+  //   return () => {
+  //     unregister(name);
+  //   };
+  // }, []);
+
   useEffect(() => {
     return () => {
       unregister(name);
     };
-  }, []);
+  }, [name, unregister]);
+
 
   const handleClick = (event: React.MouseEvent<HTMLInputElement>) => {
     onClick && onClick(event);
