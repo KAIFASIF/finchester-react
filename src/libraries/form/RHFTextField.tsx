@@ -82,11 +82,12 @@ const RHFTextField: React.FC<TextFieldProps> = ({
     formState: { errors },
   } = useFormContext();
 
-  useEffect(() => {
-    return () => {
-      unregister(name);
-    };
-  }, []);
+ 
+useEffect(() => {
+  return () => {
+    unregister(name);
+  };// eslint-disable-next-line
+}, []);
 
   const handleClick = (event: React.MouseEvent<HTMLInputElement>) => {
     onClick && onClick(event);
