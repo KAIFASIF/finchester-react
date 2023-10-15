@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { getFormatedDate } from "../../utilities/dates";
+import { getFormatedDate } from "../../../utilities/dates";
 
 const SummaryRow = ({ ele }: any) => {
   const navigate = useNavigate();

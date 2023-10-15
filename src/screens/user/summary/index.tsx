@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SummaryTable from "./SummaryTable";
 
-import Button from "../../components/button";
+import Button from "../../../components/button";
 import { useRecoilValue } from "recoil";
-import { authAtom } from "../../recoil/authAtom";
-import Layout from "../../components/Layout";
+import { authAtom } from "../../../recoil/authAtom";
+import Layout from "../../../components/Layout";
 import {
   fetchUserLoans,
   fetchUserLoansStatusCount,
-} from "../../service/summaryApi";
-import StatusCards from "../../components/status-cards";
-import FilterSearch from "../../components/filter-search";
+} from "../../../service/summaryApi";
+import StatusCards from "../../../components/status-cards";
+import FilterSearch from "../../../components/filter-search";
 import { FormProvider, useForm } from "react-hook-form";
-import Toast from "../../components/snackbar";
-import { fetchTodaysDate } from "../../utilities/dates";
+import Toast from "../../../components/snackbar";
+import { fetchTodaysDate } from "../../../utilities/dates";
 import { AxiosResponse } from "axios";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../../components/Navbar";
 
 interface statusProp {
   Loans: number;

@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "../../libraries/Table";
+import Table from "../../../libraries/Table";
 import SummmaryRow from "./SummmaryRow";
 
 interface summaryTableProps {

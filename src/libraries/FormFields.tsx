@@ -63,7 +63,7 @@ const FormFields = ({ field, disabled, fieldChanged, onChange }: any) => {
       break;
 
     default:
-      return <h1>Error renderign the Field</h1>;
+      return <h1>Error in redering the field</h1>;
   }
 };
 

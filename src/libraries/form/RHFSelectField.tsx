@@ -56,7 +56,7 @@ const RHFSelectField: React.FC<RHFSelectFieldProps> = ({
   useEffect(() => {
     return () => {
       unregister(name);
-    };
+    };// eslint-disable-next-line
   }, []);
 
   const handleChange = (e: any) => {

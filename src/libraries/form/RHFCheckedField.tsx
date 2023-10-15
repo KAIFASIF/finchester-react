@@ -34,7 +34,7 @@ const RHFCheckedField: React.FC<RHFCheckedFieldProps> = ({
   useEffect(() => {
     return () => {
       unregister(name);
-    };
+    };// eslint-disable-next-line
   }, []);
 
   const handleChange = (e: any) => {
