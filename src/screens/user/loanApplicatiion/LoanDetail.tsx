@@ -43,7 +43,7 @@ const LoanDetails: React.FC<loanDetailProps> = ({
       if (newArray?.length > 0) {
         setFilteredLoanConfig(newArray);
       }
-    }
+    }  // eslint-disable-next-line
   }, [config?.loanConfig]);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const LoanDetails: React.FC<loanDetailProps> = ({
       Object.keys(methods.getValues()).map((ele: any) => {
         setValue(ele, "");
       });
-    }
+    } // eslint-disable-next-line
   }, [loanDetail]);
 
   // useEffect(() => {

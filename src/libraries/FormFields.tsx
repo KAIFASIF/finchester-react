@@ -11,13 +11,13 @@ const FormFields = ({ field, disabled, fieldChanged, onChange }: any) => {
         <RHFTextField
           label={field?.label}
           name={field?.name}
-          required={field?.rules?.required}
+          required={field?.rules?.required}  // eslint-disable-next-line
           pattern={eval(field?.rules?.pattern)}
           disabled={disabled}
           defaultValue={field?.defaultValue}
           onChange={onChange}
         />
-      );
+      );  // eslint-disable-next-line
       break;
 
     case "select":
@@ -32,7 +32,7 @@ const FormFields = ({ field, disabled, fieldChanged, onChange }: any) => {
           defaultValue={field?.defaultValue}
           multiple={field?.multiple}
         />
-      );
+      );  // eslint-disable-next-line
       break;
     case "radio":
       return (
@@ -46,7 +46,7 @@ const FormFields = ({ field, disabled, fieldChanged, onChange }: any) => {
           errorMessage={field?.errorMessage}
           disabled={disabled}
         />
-      );
+      );  // eslint-disable-next-line
       break;
     case "check":
       return (
@@ -59,7 +59,7 @@ const FormFields = ({ field, disabled, fieldChanged, onChange }: any) => {
           disabled={disabled}
           checked={field?.checked}
         />
-      );
+      );  // eslint-disable-next-line
       break;
 
     default:

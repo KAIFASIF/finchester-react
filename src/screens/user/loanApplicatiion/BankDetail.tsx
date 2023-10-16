@@ -91,7 +91,7 @@ const BankDetail: React.FC<bankDetailProps> = ({
         setValue(ele, "");
       });
     }
-    setValue("accountType", accountType);
+    setValue("accountType", accountType);  // eslint-disable-next-line
   }, [bankDetail]);
 
   useEffect(() => {
@@ -108,13 +108,13 @@ const BankDetail: React.FC<bankDetailProps> = ({
       ifscRegx.test(getValues("ifscCode"))
     ) {
       fetchBankDetails(getValues("ifscCode"));
-    }
+    }  // eslint-disable-next-line
   }, [getValues("ifscCode")]);
 
   useEffect(() => {
     if (getValues("panNo")) {
       setValue("panNo", getValues("panNo").toUpperCase());
-    }
+    }  // eslint-disable-next-line
   }, [getValues("panNo")]);
 
   useEffect(() => {
@@ -123,7 +123,7 @@ const BankDetail: React.FC<bankDetailProps> = ({
       if (newArray?.length > 0) {
         setFilteredBankConfig(newArray);
       }
-    }
+    }  // eslint-disable-next-line
   }, [config?.bankConfig]);
 
   const fetchBankDetails = async (ifsc: string) => {

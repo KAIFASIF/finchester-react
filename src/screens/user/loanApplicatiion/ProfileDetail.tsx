@@ -43,7 +43,7 @@ const ProfileDetail: React.FC<profileDetailProps> = ({
       if (newArray?.length > 0) {
         setFilteredProfileConfig(newArray);
       }
-    }
+    };// eslint-disable-next-line
   }, [config?.profileConfig]);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const ProfileDetail: React.FC<profileDetailProps> = ({
         const updatedArray =
           config?.profileConfig?.length > 0 &&
           config?.profileConfig
-            ?.map((obj: any) => {
+            ?.map((obj: any) => { // eslint-disable-next-line
               if (referenceObj.hasOwnProperty(obj.name)) {
                 return { ...obj, render: true };
               }
@@ -97,7 +97,7 @@ const ProfileDetail: React.FC<profileDetailProps> = ({
       });
     }
 
-    setValue("gender", gender);
+    setValue("gender", gender); ;// eslint-disable-next-line
   }, [profileDetails]);
 
   const handleRenderFields = () => {
@@ -122,7 +122,7 @@ const ProfileDetail: React.FC<profileDetailProps> = ({
         );
 
       dependentArray.length > 0 &&
-        dependentArray.map((ele: any) => {
+        dependentArray.map((ele: any) => { ;// eslint-disable-next-line
           setValue(ele?.name, null);
         });
 

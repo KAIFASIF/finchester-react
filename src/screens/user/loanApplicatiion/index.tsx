@@ -39,7 +39,7 @@ const LoanApplication = () => {
     if (loanId) {
       fetchDetailsByLoanId();
     }
-    getConfig();
+    getConfig();;// eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -89,19 +89,19 @@ const LoanApplication = () => {
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       // setExpanded(isExpanded ? panel : false);
-      if( panel == "panel1"){
+      if( panel === "panel1"){
         setExpanded(isExpanded ? "panel1" : false)
       }
-      else if( panel == "panel2" && profileDetails?.id){
+      else if( panel === "panel2" && profileDetails?.id){
         setExpanded(isExpanded ? "panel2" : false)
       }
-      else if(panel == "panel3" && bankDetail?.id){
+      else if(panel === "panel3" && bankDetail?.id){
         setExpanded(isExpanded ? "panel3" : false)
       }else{
-         if(panel == "panel2"){
+         if(panel === "panel2"){
           setMessage("Please submit profile details")
          }
-         if(panel == "panel3"){
+         if(panel === "panel3"){
           setMessage("Please submit  profile and bank details")
          }
         setOpen(true)

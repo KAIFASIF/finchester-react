@@ -27,7 +27,7 @@ const MobileModal: React.FC<mobileModalProps> = ({
   const navigate = useNavigate();
   const childRef = useRef<modalMethods>(null);
 
-  const { setError, clearErrors, setValue } = methods;
+  const { setError, clearErrors } = methods;
 
   const [loader, setLoader] = useState(false);
   useEffect(() => {
