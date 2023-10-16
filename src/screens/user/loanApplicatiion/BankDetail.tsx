@@ -61,7 +61,6 @@ const BankDetail: React.FC<bankDetailProps> = ({
               if (referenceObj.hasOwnProperty(obj.name)) {
                 return { ...obj, render: true };
               }
-              return null;
             })
             .filter((obj: any) => obj !== undefined);
 
@@ -89,7 +88,7 @@ const BankDetail: React.FC<bankDetailProps> = ({
     } else {
       Object.keys(methods.getValues()).map((ele: any) => {
         setValue(ele, "");
-        return null;
+   
       });
     }
     setValue("accountType", accountType); // eslint-disable-next-line
@@ -165,7 +164,6 @@ const BankDetail: React.FC<bankDetailProps> = ({
       dependentArray.length > 0 &&
         dependentArray.map((ele: any) => {
           setValue(ele?.name, null);
-          return null;
         });
 
       const filteredArray =
