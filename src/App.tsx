@@ -12,6 +12,7 @@ import {
 import Signin from "./screens/signin";
 import Summary from "./screens/user/summary";
 import Delete from "./screens/Delete";
+import LoanApplicatiion from "./screens/user/loanApplicatiion";
 
 
 
@@ -41,6 +42,8 @@ const router = createBrowserRouter(
    
       {/* <Route path="/loan-application/:loanId" element={<LoanApplicatiion />} /> 
       <Route path="/loan-application" element={<LoanApplicatiion />} />  */}
+
+<Route path="/loan-application" element={<LoanApplicatiion />} />
       
   <Route path="/delete" element={<Delete />} /> 
       <Route path="/Signin" element={<Signin />} />
