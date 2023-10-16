@@ -86,7 +86,7 @@ const RHFTextField: React.FC<TextFieldProps> = ({
 useEffect(() => {
   return () => {
     unregister(name);
-  };// eslint-disable-next-line
+  };
 }, []);
 
   const handleClick = (event: React.MouseEvent<HTMLInputElement>) => {

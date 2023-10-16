@@ -64,6 +64,7 @@ const LoanDetails: React.FC<loanDetailProps> = ({
               if (referenceObj.hasOwnProperty(obj.name)) {
                 return { ...obj, render: true };
               }
+              return
             })
             .filter((obj: any) => obj !== undefined);
             
