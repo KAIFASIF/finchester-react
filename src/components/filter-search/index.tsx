@@ -27,7 +27,7 @@ const FilterSearch: React.FC<filterSearchProps> = ({
       />
 
       <Button
-        label="Clear Filters"
+        label="Clear"
         className="btn btn-primary"
         onClick={clearFilters}
       />
