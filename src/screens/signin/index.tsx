@@ -23,7 +23,7 @@ const Signin = () => {
   const onSubmit = async (data: any) => {
     try {
       setLoader(true);
-      const res = await axios.post("http://localhost:9090/signin", data);
+      const res = await axios.post("https://finchester.up.railway.app/signin", data);
       if (res?.status === 200) {
         localStorage.setItem("token", JSON.stringify(res?.data?.token));   
         setAuth({
