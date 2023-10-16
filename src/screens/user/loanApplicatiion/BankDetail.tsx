@@ -36,8 +36,7 @@ const BankDetail: React.FC<bankDetailProps> = ({
   const methods = useForm();
   const { getValues, setValue, setError, register, clearErrors } = methods;
   const [filteredBankConfig, setFilteredBankConfig] = useState<any[]>([]);
-  const [bankDetailStatus, setBankDetailStatus] =
-    useState<Boolean>(false);
+  const [bankDetailStatus, setBankDetailStatus] = useState<Boolean>(false);
 
   useEffect(() => {
     let accountType = null;
@@ -62,12 +61,13 @@ const BankDetail: React.FC<bankDetailProps> = ({
               if (referenceObj.hasOwnProperty(obj.name)) {
                 return { ...obj, render: true };
               }
+              return null;
             })
             .filter((obj: any) => obj !== undefined);
 
-            if (config?.bankConfig?.length > 0) {
-              const mergedArray = [...handleRenderFields(), ...updatedArray];
-          
+        if (config?.bankConfig?.length > 0) {
+          const mergedArray = [...handleRenderFields(), ...updatedArray];
+
           const uniqueNames = new Set();
 
           const uniqueFields = mergedArray.reduce((result, obj) => {
@@ -89,9 +89,10 @@ const BankDetail: React.FC<bankDetailProps> = ({
     } else {
       Object.keys(methods.getValues()).map((ele: any) => {
         setValue(ele, "");
+        return null;
       });
     }
-    setValue("accountType", accountType);  // eslint-disable-next-line
+    setValue("accountType", accountType); // eslint-disable-next-line
   }, [bankDetail]);
 
   useEffect(() => {
@@ -108,13 +109,13 @@ const BankDetail: React.FC<bankDetailProps> = ({
       ifscRegx.test(getValues("ifscCode"))
     ) {
       fetchBankDetails(getValues("ifscCode"));
-    }  // eslint-disable-next-line
+    } // eslint-disable-next-line
   }, [getValues("ifscCode")]);
 
   useEffect(() => {
     if (getValues("panNo")) {
       setValue("panNo", getValues("panNo").toUpperCase());
-    }  // eslint-disable-next-line
+    } // eslint-disable-next-line
   }, [getValues("panNo")]);
 
   useEffect(() => {
@@ -123,12 +124,12 @@ const BankDetail: React.FC<bankDetailProps> = ({
       if (newArray?.length > 0) {
         setFilteredBankConfig(newArray);
       }
-    }  // eslint-disable-next-line
+    } // eslint-disable-next-line
   }, [config?.bankConfig]);
 
   const fetchBankDetails = async (ifsc: string) => {
     try {
-      setLoader(true)
+      setLoader(true);
       const res = await axios.get(`https://ifsc.razorpay.com/${ifsc}`);
       if (res?.status === 200) {
         for (let [key, value] of Object.entries(res?.data)) {
@@ -138,8 +139,10 @@ const BankDetail: React.FC<bankDetailProps> = ({
         }
         clearErrors();
       }
-      setLoader(false)
-    } catch (error) {setLoader(false)}
+      setLoader(false);
+    } catch (error) {
+      setLoader(false);
+    }
   };
 
   const handleRenderFields = () => {
@@ -162,6 +165,7 @@ const BankDetail: React.FC<bankDetailProps> = ({
       dependentArray.length > 0 &&
         dependentArray.map((ele: any) => {
           setValue(ele?.name, null);
+          return null;
         });
 
       const filteredArray =
@@ -250,7 +254,7 @@ const BankDetail: React.FC<bankDetailProps> = ({
             setValue(key, val);
           }
         }
-        setBankDetailStatus(true)
+        setBankDetailStatus(true);
         setExpanded("panel3");
       }
 
