@@ -29,12 +29,12 @@ const Navbar = () => {
             <Avatar>
               {auth?.user?.fullname.substring(0, 1).toUpperCase()}
             </Avatar>
-            <button className="mx-5" onClick={logout}>
+            <button className="mx-5" onClick={()=> setAuth("")}>
               Logout
             </button>
           </div>
           <div className=" mt-2 lg:hidden sm:flex">
-            <button className="mx-5" onClick={logout}>
+            <button className="mx-5" onClick={()=> setAuth("")}>
               Logout
             </button>
           </div>

@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -8,50 +9,43 @@ import {
 } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { authAtom } from "./recoil/authAtom";
-import Signin from "./screens/signin";
-import Summary from "./screens/user/summary";
-// import Delete from "./screens/Delete";
-import LoanApplicatiion from "./screens/user/loanApplicatiion";
+import TicketBooking from "./screens/user/ticketBooking";
 
-// import Delete from "./screens/Delete";
-
-const RoleWrapper = ({ role }: any) => {
+const App = () => {
   const auth = useRecoilValue(authAtom);
-  const userRoles = [auth?.role];
-  return userRoles?.includes(role) ? (
-    <Outlet />
-  ) : (
-    <Navigate to="/signin" replace />
-  );
-};
-
-const Root = () => {
-  return <Outlet />;
-};
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Root />}>
-      <Route element={<RoleWrapper role="ROLE_USER" />}>
-        <Route
-          path="/loan-application/:loanId"
-          element={<LoanApplicatiion />}
-        />
-        <Route path="/loan-application" element={<LoanApplicatiion />} />
-        <Route path="/" element={<Summary />} />
-      </Route>
-
-      {/* <Route path="/delete" element={<Delete />} />  */}
-      <Route path="/Signin" element={<Signin />} />
-    </Route>
-  )
-);
-function App() {
+  const Signin = lazy(() => import("./screens/signin"));
+  const Summary = lazy(() => import("./screens/user/summary"));
+  const LoanApplication = lazy(() => import("./screens/user/loanApplicatiion"));
+  const AdminDashboard = lazy(() => import("./screens/admin/AdminDashboard"));
   return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
+    <RouterProvider
+      router={createBrowserRouter(createRoutesFromElements(
+        <Route>
+               {
+                 auth?.role === "ROLE_ADMIN" ? (  
+                    <Route path="/" element={<Outlet/>}>
+                      <Route index element={<Suspense><AdminDashboard /></Suspense>} />
+                      <Route path="*" element={<Navigate to="/" replace />} />
+                    </Route>               
+                  ): auth?.role === "ROLE_USER" ? (             
+                    <Route path="/" element={<Outlet/>}>
+                      <Route index element={<Suspense><Summary /></Suspense>} />
+                      <Route path="/loan-application" element={<Suspense><LoanApplication /></Suspense>}>
+                        <Route path=":loanId" element={<Suspense><LoanApplication /></Suspense>} />
+                      </Route>
+                      <Route path="*" element={<Navigate to="/" replace />} />
+                    </Route>
+                  ): (
+                    <Route path="/" element={<Outlet/>}>
+                      <Route index element={<Suspense><TicketBooking /></Suspense>} />
+                      {/* <Route index element={<Suspense><Signin /></Suspense>} /> */}
+                      <Route path="*" element={<Navigate to="/" replace />} />
+                    </Route>
+                  )}         
+        </Route>
+      ))}
+    />
   );
-}
+};
 
 export default App;

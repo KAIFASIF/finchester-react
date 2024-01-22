@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 
 const api = axios.create({
-  baseURL: "https://finchester.up.railway.app",
-  // baseURL: "http://localhost:9090",
+  // baseURL: "https://finchester.up.railway.app",
+  baseURL: "http://localhost:9090",
   headers: {
     'Content-Type': 'application/json',
     accept: 'application/json',

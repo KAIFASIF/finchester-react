@@ -21,18 +21,44 @@ const Signin = () => {
   const handleToast = () => setOpen(false);
 
   const onSubmit = async (data: any) => {
+    // navigate("/"); 
+    // try {
+    //   setLoader(true);
+    //   const res = await axios.post("https://finchester.up.railway.app/signin", data);
+    //   if (res?.status === 200) {
+    //     localStorage.setItem("token", JSON.stringify(res?.data?.token));   
+    //     setAuth({
+    //       user: res?.data?.user,
+    //       partnerId: res?.data?.partnerId,
+    //       role: res?.data?.role,
+    //       partnerName: res?.data?.partnerName,
+    //     });    
+    //       navigate("/");        
+    //     }
+    //     setLoader(false);
+     
+    // } catch (error: any) {
+    //   setLoader(false);
+    //   if (error?.response?.status === 404 || 406) {
+    //     setMessage(error?.response?.data?.message);
+    //     setSeverity("error");
+    //     setOpen(true);
+    //   }
+    // }
     try {
       setLoader(true);
-      const res = await axios.post("https://finchester.up.railway.app/signin", data);
+      const res = await axios.post("http://localhost:9090/signin", data);
       if (res?.status === 200) {
         localStorage.setItem("token", JSON.stringify(res?.data?.token));   
         setAuth({
+          isLoggedin : true,
           user: res?.data?.user,
           partnerId: res?.data?.partnerId,
-          role: res?.data?.role,
+          // role: res?.data?.role,
+          role: "ROLE_ADMIN",
           partnerName: res?.data?.partnerName,
         });    
-          navigate("/");        
+          navigate("/s");        
         }
         setLoader(false);
      
